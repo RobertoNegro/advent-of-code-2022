@@ -59,7 +59,13 @@ export const getInput = async (day: number, debug?: boolean) => {
 
 export const getNumberArrayInput = async (day: number, debug?: boolean) => {
   const input = await getInput(day, debug);
-  return _.map(input, (d) => parseInt(d, 10));
+  return _.map(input, (d) => {
+    let parsed = parseInt(d, 10);
+    if (_.isNaN(parsed)) {
+      parsed = null;
+    }
+    return parsed;
+  });
 };
 
 export default {
