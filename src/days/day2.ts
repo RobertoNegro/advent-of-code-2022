@@ -156,8 +156,6 @@ const execute = async () => {
 
   const data = await getInput(2, false);
 
-  logger.child({ data }).info("Data");
-
   let score = 0;
   _.each(data, (row) => {
     score += analyzeRow(sanitizeRow(row));
